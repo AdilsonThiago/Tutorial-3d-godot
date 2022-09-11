@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/effects/bullet.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.1
+height = 0.3
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.1
+mid_height = 0.3
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_color = Color( 1, 0.423529, 0, 0.415686 )
+
+[sub_resource type="CapsuleMesh" id=4]
+radius = 0.042
+mid_height = 0.286
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_color = Color( 1, 0.901961, 0, 0.560784 )
+
+[node name="Area" type="Area"]
+monitorable = false
+script = ExtResource( 1 )
+Velocidade = 30.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[connection signal="body_entered" from="." to="." method="_on_Area_body_entered"]

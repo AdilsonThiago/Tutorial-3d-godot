@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://textures/nature/green.tres" type="Material" id=1]
+[ext_resource path="res://textures/nature/brown.tres" type="Material" id=2]
+[ext_resource path="res://models/trees/obj_mtl/tree-oval.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://objects/nature/tressgeometryres.tres" type="Shape" id=4]
+
+[node name="Spatial" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23112, 0 )
+shape = ExtResource( 4 )
